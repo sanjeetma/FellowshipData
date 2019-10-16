@@ -1,0 +1,26 @@
+[
+	{
+		"doctor": {
+			"speciality": "heart",
+			"get": "am",
+			"name": "khurrana",
+			"id": "102"
+		}
+	},
+	{
+		"doctor": {
+			"speciality": "Lung",
+			"get": "pm",
+			"name": "saxena",
+			"id": "110"
+		}
+	},
+	{
+		"doctor": {
+			"speciality": "Kidney",
+			"get": "AM",
+			"name": "Mehta",
+			"id": "125"
+		}
+	}
+]
