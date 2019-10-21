@@ -2,24 +2,29 @@ import Utility.*;
 public class Abc {
 
 	public static void main(String[] args) {
+		//take input from user
 		String s[]= {"ram","apple","shyam","banana"};
+		//take input from user in input class where all methods are statis and havingi private constructor
 		String find="ram";
 		String str1="madam";
-		
-		
+		//take input from user in input class where all methods are statis and havingi private constructor
 		int n1=Util.binarySearch(find, s);
 		int arr[]= {1,2,5,7,3,11};
 		int fin=5;
+
 		int n2=Util.binarySearch(fin, arr);
+
 		System.out.println(n1);
 		System.out.println(n2);
-	   if(!Util.pallindrom(str1)) {
+	   
+		if(!Util.pallindrom(str1)) {
 		   System.out.println("Pallindrome String");  
 	   }
 	   else {
 	    System.out.println("No Pallindrome string");
 	   }
-	   for(int i=2;i<=10;i++) {
+//Write logic in util method
+		for(int i=2;i<=10;i++) {
 	   if(Util.isPrime(i)) {
 		   System.out.print(i+" ");   
 	   }
