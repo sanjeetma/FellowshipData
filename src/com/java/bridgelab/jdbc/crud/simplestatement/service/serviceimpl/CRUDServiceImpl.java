@@ -41,17 +41,18 @@ public class CRUDServiceImpl implements CRUDService {
 		String zip = ScannerUtil.inputString();
 		System.out.println("Enter mobile");
 		String mobile = ScannerUtil.inputString();
-        String sql;
-        try {
+        String sql="INSERT INTO addressbook " + 
+		"VALUES ('"+name+"','"+city+"','"+state+"','"+zip+"','"+mobile+"')";
+        		try {
 			Statement stmt=con.createStatement();
-			stmt.executeUpdate("insert into addressbook values("sanjeet","obra","bihar","2232332","3232223")");
+			stmt.executeUpdate(sql);
 			con.close();
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
         finally {
-        	
+        	System.out.println("value Inserted");
         }
         
 		
@@ -64,15 +65,18 @@ public class CRUDServiceImpl implements CRUDService {
 		System.out.println("Enter your name");
 		String name = ScannerUtil.inputString();
 		System.out.println("What you want to update");
-		String update = ScannerUtil.inputString();
+		String columnName = ScannerUtil.inputString();
 		System.out.println("Enter your value");
-		String value = ScannerUtil.inputString();
-		String sql = "Update addressbook set" + update + "=" + value + "where name=" + name;
+		String Newvalue = ScannerUtil.inputString();
+		String sql = "update addressbook set"+" "+columnName+"='"+Newvalue+"' "+"where name='"+name+"'";
 		try {
 			Statement stmt = con.createStatement();
 			stmt.executeUpdate(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		finally {
+			System.out.println("Value Updated");
 		}
 
 	}
@@ -98,7 +102,21 @@ public class CRUDServiceImpl implements CRUDService {
 
 	@Override
 	public void delete() {
-
+       System.out.println("ENter your name");
+       String name=ScannerUtil.inputString();
+       Connection con=getConnection();
+       String sql="Delete from addressbook where name='"+name +"'";
+    
+       try {
+		Statement stmt=con.createStatement();
+		stmt.executeUpdate(sql);
+	} catch (SQLException e) {
+		
+		e.printStackTrace();
 	}
-
+	finally {
+		System.out.println("Value Deleted");
+	}
+	
+}
 }
