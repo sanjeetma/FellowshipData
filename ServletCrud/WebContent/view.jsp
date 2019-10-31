@@ -5,7 +5,7 @@
 <head>
 <style>
 table, th, td {
-	border: 1px solid black;
+	border: 5px solid black;
 	border-collapse: collapse;
 }
 </style>
@@ -17,6 +17,12 @@ table, th, td {
 <%@page import="com.java.bridgelabz.servletcrud.model.*"%>
 </head>
 <body>
+<%
+response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+if(session.getAttribute("name")==null){
+	response.sendRedirect("index.html");
+}
+%>
 	<table width="100%">
 		<tr>
 			<th>EmployeeId</th>
@@ -50,5 +56,9 @@ table, th, td {
 
 		</tr>
 	</table>
+	<form action="logout" method="post">
+	<input type="submit" value="logout">
+	
+	</form>
 </body>
 </html>

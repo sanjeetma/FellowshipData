@@ -95,4 +95,30 @@ public class EmployeeDao {
 		}
 		return list;
 	}
+
+	public static boolean check(String name, String password) {
+		boolean bool = false;
+		Connection connection = getConnection();
+		String sql = "Select * from users";
+		PreparedStatement stmt;
+		try {
+			stmt = connection.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				String username = rs.getString(1);
+				String pass = rs.getString(2);
+				if (username.compareToIgnoreCase(name) == 0 && password.compareToIgnoreCase(pass) == 0) {
+					bool = true;
+					break;
+				}
+			}
+		}
+
+		catch (SQLException e) {
+
+			System.out.println("syntax Error");
+		}
+
+		return bool;
+	}
 }
