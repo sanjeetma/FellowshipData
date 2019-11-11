@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+ <bean id="tyreee" class="com.java.spring.DependencyInjectionSpring.Tyre"> 
+ </bean> 
+   
+<bean id="ford" class="com.java.spring.DependencyInjectionSpring.Car">
+<property name="carName" value="Ford" ></property>
+<property name="maxSpeed" value="200" ></property>
+<property name="tyre"><ref bean="tyreee"/>
+ 
+</property>
+
+</bean>
+
+<bean id="maruti" class="com.java.spring.DependencyInjectionSpring.Car">
+<property name="carName" value="Maruti Suzuki" ></property>
+<property name="maxSpeed" value="180" ></property>
+<property name="tyre"><ref bean="tyreee"/>
+ 
+</property>
+
+</bean>
+
+<bean id="volvo" class="com.java.spring.DependencyInjectionSpring.Bus">
+<constructor-arg name="busName" value="Volvo" ></constructor-arg>
+<constructor-arg name="maxSpeed" value="150" ></constructor-arg>
+<constructor-arg ref="tyreee"></constructor-arg>
+</bean>
+</beans>
