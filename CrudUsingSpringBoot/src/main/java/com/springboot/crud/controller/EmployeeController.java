@@ -39,15 +39,16 @@ public class EmployeeController {
 	}
 
 	@DeleteMapping("/delete/{Id}")
-	public String delete(@PathVariable(name="Id") Long Id) {
+	public String delete(@PathVariable(name = "Id") Long Id) {
 
 		dao.deleteById(Id);
 		return "deleted";
 
 	}
+
 	@GetMapping("/find/{Id}")
-	public Optional<Employee> find(@PathVariable(name="Id") Long Id) {
+	public Optional<Employee> find(@PathVariable(name = "Id") Long Id) {
 		return dao.findById(Id);
-		
+
 	}
 }
